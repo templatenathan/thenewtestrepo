@@ -1,0 +1,7 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run lint:fix **/*.js
+npm run prettier:fix **/*.js
+
+git diff --staged --name-only -z | xargs -0 detect-secrets-hook --baseline .secrets.baseline

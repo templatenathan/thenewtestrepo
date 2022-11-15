@@ -1,0 +1,36 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:fix": "eslint --cache --fix",
+    "lint:verify": "eslint .",
+    "prepare": "husky install",
+    "prettier:fix": "prettier --write",
+    "prettier:verify": "prettier --check \"*.{js,css,md,yml,json}\"",
+    "test": "npm run test:unit",
+    "test:unit": "jest --coverage --verbose",
+    "test:unit:watch": "npm run test:unit -- --watchAll"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^26.7.0",
+    "husky": "^7.0.0",
+    "jest": "^28.0.3",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix"
+    ],
+    "*.{js,css,md,yml}": [
+      "npm run prettier:fix"
+    ]
+  }
+}
